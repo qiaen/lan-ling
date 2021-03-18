@@ -1,4 +1,4 @@
-<h1><img height="52" src="assets/img/lan-2.png"> 兰陵王 - 后台管理系统模版</h1>
+<h1><img height="52" src="https://github.com/qiaen/lan-ling/blob/master/src/assets/img/lan-2.png?raw=true"> 兰陵王 - 后台管理系统模版</h1>
 
 > 是一个基于Vue的前端系统管理框架，集成状态管理，动态路由，自主登录，权限控制，路由切换现场保留等功能
 
@@ -25,8 +25,10 @@ npm run build --report
 - 共用的js，比如vue，vuex，axios尽量使用公司内部的cdn，大的包采用外链导入，外链导入可以优化打包速度和并行加载速度，其他优点这里不做展开
 
 ## 集成了自主登录，无需配置host，支持ip+端口号访问，方便开发阶段各个设备的兼容性测试
-![登录页面](/login-page.png "登录页面")
-**请注意登录环境与base.target跨域代理的域名必须一致**，登录页面只在开发阶段使用，发布后用户登录依旧使用公司统一鉴权
+![现场保留](https://github.com/qiaen/static/blob/master/34783.png?raw=true "现场保留")
+
+## 弹出层项目预览
+![详情抽屉](https://github.com/qiaen/static/blob/master/9483.png?raw=true "详情抽屉")
 
 ## axios请求前置处理，请注意api接口配置是根据项目而定
 ```javascript
