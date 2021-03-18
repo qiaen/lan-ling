@@ -1,0 +1,29 @@
+{
+  "name": "lan-ling",
+  "version": "1.0.0",
+  "description": "兰陵王-基于Vue的前端系统管理框架，集成状态管理，动态路由，自主登录，权限控制等功能",
+  "author": "TEEMO <762366705@qq.com>",
+  "private": true,
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "fat": "vue-cli-service build",
+    "uat": "vue-cli-service build",
+    "pro": "vue-cli-service build"
+  },
+  "dependencies": {
+    "echarts": "^4.7.0",
+    "vue-echarts": "^5.0.0-beta.0"
+  },
+  "devDependencies": {
+    "core-js": "^3.6.4",
+    "@vue/cli-plugin-babel": "~4.2.0",
+    "@vue/cli-plugin-router": "~4.2.0",
+    "@vue/cli-plugin-vuex": "~4.2.0",
+    "@vue/cli-service": "~4.2.0",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
