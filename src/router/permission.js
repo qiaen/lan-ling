@@ -9,9 +9,7 @@ const whiteList = ['/login', '/401', '/404']
 const loadingFun = (text = '初始化数据加载中...') => {
 	return ELEMENT.Loading.service({
 		lock: true,
-		text: text
-		/* spinner: 'el-icon-loading',
-		background: 'rgba(255, 255, 255, 0.3)' */
+		text
 	})
 }
 let loading = false
@@ -37,35 +35,48 @@ router.beforeEach(async (to, from, next) => {
 			}).catch(() => {
 				loading.close()
 			})
-			await store.dispatch('getAllEnum').then(res => {
-				if (res.code !== 200) {
-					ELEMENT.Message({ type: 'error', duration: 0, showClose: true, message: `获取全局枚举信息失败！` })
-				}
-			}).catch(err => {
-				ELEMENT.Message({ type: 'error', duration: 0, showClose: true, message: `获取全局枚举信息失败！` })
-			})
-			let routers = []
 
-			function mthChild(items) {
-				items.forEach(item => {
-					if (item.child && item.child.length) {
-						mthChild(item.child)
+			if (!window.needAuth) {
+				// 用户已经登录过
+				await store.dispatch('getAllEnum').then(res => {
+					if (res.code !== 200) {
+						ELEMENT.Message({ type: 'error', duration: 0, showClose: true, message: `获取全局枚举信息失败！` })
+					}
+				}).catch(err => {
+					ELEMENT.Message({ type: 'error', duration: 0, showClose: true, message: `获取全局枚举信息失败！` })
+				})
+			} else {
+				// 用户还没有登录
+				next({ path: '/login', replace: true })
+				loading.close()
+				loading = false
+				return
+			}
+			// 递归方法
+			function depthRoute(menus, routers) {
+				menus.forEach(menu => {
+					if (menu.child && menu.child.length) {
+						depthRoute(menu.child, routers)
 					} else {
 						routers.push({
-							path: item.path,
-							name: item.name,
-							component: () => import(`@/views${item.file}`),
+							path: menu.path,
+							name: menu.name,
+							component: () => import(`@/views${menu.file}`),
 							meta: {
-								...(item.meta || {}),
-								title: item.name,
-								icon: item.icon
+								...(menu.meta || {}),
+								title: menu.name,
+								icon: menu.icon
 							}
 						})
 					}
 				})
+				return routers
 			}
 			store.dispatch('SetMenus', menus)
-			mthChild(menus)
+			// 递归菜单生成路由
+			let routers = depthRoute(menus, [])
+			console.log(routers)
+			// 写入所有路由菜单
 			router.addRoutes([{
 				path: '/',
 				name: '首页',

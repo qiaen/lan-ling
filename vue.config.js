@@ -7,8 +7,8 @@ const base = {
 	// 项目页面title
 	name: '兰陵王 - 后台管理系统',
 	// 目标接口域名
-	// target: 'http://p-test.zmlearn.com',
-	target: 'http://localhost:8021',
+	target: 'http://diumx.com:8030',
+	// target: 'http://localhost:8021',
 }
 module.exports = {
 	devServer: {

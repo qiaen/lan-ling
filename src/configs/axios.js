@@ -21,7 +21,7 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
 	response => {
 		let res = response.data
-		if (res.code == 401) {
+		if (res.code === 401) {
 			window.location.href = '#/login'
 		}
 		return response
