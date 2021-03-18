@@ -1,7 +1,7 @@
 <h1><img height="52" src="https://github.com/qiaen/lan-ling/blob/master/src/assets/img/lan-2.png?raw=true"> 兰陵王 - 后台管理系统模版</h1>
 
 > 是一个基于Vue的前端系统管理框架，集成状态管理，动态路由，自主登录，权限控制，路由切换现场保留等功能
-
+> 预览[http://lanling.diumx.com](http://lanling.diumx.com "http://lanling.diumx.com")
 ## Build Setup
 
 ``` bash
