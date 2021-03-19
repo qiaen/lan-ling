@@ -2,6 +2,9 @@
 
 > 是一个基于Vue的前端系统管理框架，集成状态管理，动态路由，自主登录，权限控制，路由切换现场保留等功能
 
+在线预览[http://lanling.diumx.com](http://lanling.diumx.com "http://lanling.diumx.com")
+
+git仓库[https://github.com/qiaen/lan-ling](https://github.com/qiaen/lan-ling "https://github.com/qiaen/lan-ling")
 ## Build Setup
 
 ``` bash
