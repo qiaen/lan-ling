@@ -1,7 +1,7 @@
 {
   "name": "lan-ling",
   "version": "1.0.0",
-  "description": "兰陵王-基于Vue的前端系统管理框架，集成状态管理，动态路由，自主登录，权限控制等功能",
+  "description": "兰陵王 - 基于Vue2.x的前端系统管理框架，集成状态管理，动态路由，自主登录，权限控制等功能",
   "author": "TEEMO <762366705@qq.com>",
   "private": true,
   "scripts": {
