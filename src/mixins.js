@@ -1,4 +1,3 @@
-import * as Base from '@api/Base'
 import Configs from '@configs/index'
 import { mapGetters } from 'Vuex'
 
@@ -58,14 +57,8 @@ export default {
 		...mapGetters([
 			// 服务器枚举信息
 			'serviceEnum',
-			// 是否打开任务登记
-			'openCheckIn',
 			// 用户信息
-			'userInfo',
-			// 数据源枚举，动态，从接口获取
-			'dataSource',
-			// 当前选中查看的任务信息
-			'currtTaskRow'
+			'userInfo'
 		])
 	},
 	methods: {
@@ -84,53 +77,6 @@ export default {
 		pageChange(val) {
 			this.pageInfo.pageNo = val
 			this.get()
-		},
-		// 根据type获取枚举
-		getEnumsByType(type) {
-			if (!type) {
-				console.log(`mixins.js: 方法getEnumsByType没有缺少type参数`)
-				return
-			}
-			if (this.serviceEnums[type].length > 2) { return }
-			this.xoading[type] = true
-			Base.getEnumsByType({ type }).then(res => {
-				if (res.code === 0) {
-					this.serviceEnums[type] = res.data
-				} else {
-					this.$message.error(res.message)
-				}
-				this.xoading[type] = false
-			}).catch(err => {
-				this.xoading[type] = false
-			})
-		},
-		// 通过type获取可用数据源
-		getAvailableDataSource(type) {
-			this.xoading.availableDataSource = true
-			Base.getAvailableDataSource({ type }).then(res => {
-				if (res.code == 0) {
-					this.$store.dispatch('SetDataSource', { type, value: res.data })
-				} else {
-					this.$message.error(res.message)
-				}
-				this.xoading.availableDataSource = false
-			}).catch(err => {
-				this.xoading.availableDataSource = false
-			})
-		},
-		// 通过数据源ID, 表名获取表, type: 哪个地方获取
-		getTablesBySourceId(type, id, tableName) {
-			this.xoading.sourceTables = true
-			Base.getTablesBySourceId({ id, tableName }).then(res => {
-				if (res.code == 0) {
-					this.sourceTables[type] = res.data
-				} else {
-					this.$message.error(res.message)
-				}
-				this.xoading.sourceTables = false
-			}).catch(err => {
-				this.xoading.sourceTables = false
-			})
 		},
 		// 匹配枚举 返回label  this.matchEnum('PULL_INCRE_TYPE', 'day_all')
 		matchEnum(type, key) {
