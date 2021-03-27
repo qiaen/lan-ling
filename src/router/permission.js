@@ -1,10 +1,8 @@
 import router from './index'
 import store from '@/store'
-// import menus from './menu.js'
-import layout from '@/views/layout/'
-
+import routes from './routes'
 // 免登陆可进入的页面(白名单)
-const whiteList = ['/login', '/401', '/404']
+const whiteList = ['/login', '/403', '/404']
 // 全局加载
 const loadingFun = (text = '初始化数据加载中...') => {
 	return ELEMENT.Loading.service({
@@ -75,36 +73,9 @@ router.beforeEach(async (to, from, next) => {
 			store.dispatch('SetMenus', menus)
 			// 递归菜单生成路由
 			let routers = depthRoute(menus, [])
-			console.log(routers)
+			routes[0].children = [...routers, ...routes[0].children]
+			router.addRoutes(routes)
 			// 写入所有路由菜单
-			router.addRoutes([{
-				path: '/',
-				name: '首页',
-				component: layout,
-				meta: {
-					title: '首页'
-				},
-				children: [
-					...routers,
-					{
-						path: '/403',
-						name: '无权限',
-						component: () => import('@views/error/403.vue'),
-						meta: {
-							title: '403',
-							icon: 'el-icon-key'
-						}
-					}, {
-						path: '*',
-						name: '404',
-						component: () => import('@views/error/404.vue'),
-						meta: {
-							title: '404',
-							icon: 'el-icon-key'
-						}
-					}
-				]
-			}])
 			next({ ...to, replace: true })
 			loading.close()
 			loading = false

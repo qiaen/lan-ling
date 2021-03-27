@@ -1,26 +1,36 @@
 <template>
-	<div class="contain flex-g1 flex-view">
-		Dashboard
-	</div>
+	<section class="dashboard bgfff center">
+		<img class="nothing" src="@img/nothing.png" alt="">
+	</section>
 </template>
 <script>
+import Enum from '@configs/enum'
+import * as Task from '@api/Task'
+import Mixins from '@/mixins'
 export default {
 	name: '/',
+	mixins: [Mixins],
 	data() {
 		return {
-			msg: '',
-			list: []
+
 		}
 	},
 	methods: {
+		get() {
 
+		}
 	},
 	mounted() {
-		this.insertJs('https://www.echartsjs.com/zh/dist/echarts-gl.min.js').then(() => {
-
+		this.insertJs('https://unpkg.com/vuex@3.6.2/dist/vuex.min.js').then(() => {
+			console.log('vuex.min.js 已经被引用')
 		})
 	}
 }
 </script>
-<style>
+<style lang="less">
+.dashboard {
+	.nothing {
+		width: 400px;
+	}
+}
 </style>
