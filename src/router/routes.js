@@ -8,10 +8,11 @@ export default [{
 	meta: {
 		title: '首页'
 	},
+	/* 有一个问题： 为什么/不能不指定，指定了以后无法更改？不能被缓存 */
 	children: [{
-		path: '',
+		path: '/',
 		name: 'Dashboard',
-		component: () => import('@views/daily/index.vue'),
+		component: () => import('@views/dashboard/index.vue'),
 		meta: {
 			title: 'dashboard',
 			icon: 'iconfont icon-dashboard'

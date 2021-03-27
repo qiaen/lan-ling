@@ -73,7 +73,23 @@ router.beforeEach(async (to, from, next) => {
 			store.dispatch('SetMenus', menus)
 			// 递归菜单生成路由
 			let routers = depthRoute(menus, [])
-			routes[0].children = [...routers, ...routes[0].children]
+			routes[0].children = [...routers, ...routes[0].children, {
+				path: '/403',
+				name: '无权限',
+				component: () => import('@views/error/403.vue'),
+				meta: {
+					title: '403',
+					icon: 'el-icon-key'
+				}
+			}, {
+				path: '*',
+				name: '404',
+				component: () => import('@views/error/404.vue'),
+				meta: {
+					title: '404',
+					icon: 'el-icon-key'
+				}
+			}]
 			router.addRoutes(routes)
 			// 写入所有路由菜单
 			next({ ...to, replace: true })
@@ -92,4 +108,13 @@ router.beforeEach(async (to, from, next) => {
 
 		}
 	}
+})
+// 全局后置钩子，例如页面分析
+router.afterEach((to, from) => {
+	document.title = to.name ? `${to.name} - 兰陵王` : to.name
+	store.dispatch('SetCurrentTab', {
+		label: to.name,
+		path: to.path,
+		icon: to.meta.icon
+	})
 })

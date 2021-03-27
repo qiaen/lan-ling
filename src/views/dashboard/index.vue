@@ -11,9 +11,7 @@ export default {
 	name: '/',
 	mixins: [Mixins],
 	data() {
-		return {
-
-		}
+		return {}
 	},
 	methods: {
 		get() {

@@ -60,15 +60,6 @@ export default {
 				}
 			}).catch(() => {})
 		},
-		// 设置已选择的tab
-		setCurrentTab() {
-			let route = this.$route
-			this.$store.dispatch('SetCurrentTab', {
-				label: route.name,
-				path: route.path,
-				icon: route.meta.icon
-			})
-		},
 		//  根据类型关闭tab
 		closeTabs(type) {
 			this.$store.dispatch('CloseTabs', type).then(() => {
@@ -78,14 +69,6 @@ export default {
 				}
 			})
 		}
-	},
-	watch: {
-		'$route.path'() {
-			this.setCurrentTab()
-		}
-	},
-	created() {
-		this.setCurrentTab()
 	}
 }
 </script>
