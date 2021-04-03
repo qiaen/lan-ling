@@ -27,7 +27,7 @@
 				</el-submenu>
 				<el-menu-item :key="item.name" :index="item.path" v-else>
 					<i :class="item.icon"></i>
-					<span>{{item.name}}</span>
+					<span slot="title">{{item.name}}</span>
 				</el-menu-item>
 			</template>
 		</el-menu>

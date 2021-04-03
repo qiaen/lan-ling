@@ -17,8 +17,8 @@
 					<div style="width: 40px" class="el-input-group__prepend center shrink0 fc333">
 						<i class="iconfont icon-mysql fsize13 pr5"></i>Mysql</div>
 					<div class="flex1">
-						<el-select @focus="getAvailableDataSource('mysql')" @change="dataSourceChange" :loading="xoading.availableDataSource" filter class="width100" v-model="data.datasourceId" placeholder="请选择数据源" ref="dataSourceSelect" filterable>
-							<el-option :dbName="item.dbName" v-for="item in dataSource.mysql" :label="item.name" :value="item.id" :key="item.id"></el-option>
+						<el-select @change="dataSourceChange" :loading="xoading.availableDataSource" filter class="width100" v-model="data.datasourceId" placeholder="请选择数据源" ref="dataSourceSelect" filterable>
+							<el-option></el-option>
 						</el-select>
 					</div>
 				</div>

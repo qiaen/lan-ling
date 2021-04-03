@@ -64,7 +64,7 @@ export default {
 	}
 }
 .drawer-content {
-	padding: 15px;
+	padding: 10px 15px;
 	background: #f1f5f9 url("../assets@{main-bg}") no-repeat bottom right;
 }
 .drawer-content>div,
@@ -87,8 +87,8 @@ export default {
 	bottom: -15px;
 	z-index: 99;
 	header {
-		height: 46px;
-		min-height: 46px;
+		height: 40px;
+		min-height: 40px;
 		margin: 0 15px;
 	}
 }
