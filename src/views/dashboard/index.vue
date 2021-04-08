@@ -19,9 +19,9 @@ export default {
 		}
 	},
 	mounted() {
-		this.insertJs('https://unpkg.com/vuex@3.6.2/dist/vuex.min.js').then(() => {
-			console.log('vuex.min.js 已经被引用')
-		})
+		/* this.insertJs('https://statics-lib.zmlearn.com/vue/2.6.6/vue.min.js').then(() => {
+			console.log('vue.min.js 已经被引用')
+		}) */
 	}
 }
 </script>

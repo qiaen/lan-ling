@@ -13,7 +13,8 @@ import './components/'
 import './assets/css/base.less'
 // 自定义指令
 import './directive'
-
+// 引入PWA
+import './pwa/register-service-worker'
 new Vue({
 	router,
 	store,

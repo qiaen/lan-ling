@@ -72,5 +72,12 @@ module.exports = {
 	},
 	publicPath: base.isProd ? base.href : '/',
 	lintOnSave: !base.isProd,
-	productionSourceMap: false
+	productionSourceMap: false,
+	pwa: {
+		name: base.name,
+		workboxPluginMode: 'InjectManifest',
+		workboxOptions: {
+			swSrc: path.resolve(__dirname, 'src/pwa/service-worker.js')
+		}
+	},
 }

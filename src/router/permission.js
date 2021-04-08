@@ -115,6 +115,6 @@ router.afterEach((to, from) => {
 	store.dispatch('SetCurrentTab', {
 		label: to.name,
 		path: to.path,
-		icon: to.meta.icon
+		icon: (to.meta || {}).icon
 	})
 })

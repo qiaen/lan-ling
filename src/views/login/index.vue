@@ -1,7 +1,7 @@
 <template>
 	<div class="login width100 height100 hideit relative">
 		<div class="bg-box hideit width100 height100 absolute">
-			<img src="http://diumx.com/static/1238.jpg" alt="">
+			<img src="/1238.jpg" alt="">
 			<div class="bgmask absolute width100 height100" style="background: rgba(0,0,0,0.46)"></div>
 		</div>
 		<div class="rotate-bg absolute">

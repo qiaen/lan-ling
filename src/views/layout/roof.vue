@@ -58,13 +58,11 @@ export default {
 		// 退出登录
 		logout(val) {
 			if (val === 'a') {
-				this.$store.dispatch('CloseTabs', 'all').then(() => {
-					window.location.href = '#/login'
-				})
-
+				this.$store.dispatch('CloseTabs', 'all')
 				this.$store.dispatch('SetMenus', [])
 				Storage.clear('token')
 				window.needAuth = true
+				this.$router.push('/login')
 			}
 		}
 	},

@@ -12,13 +12,16 @@
     "uat": "vue-cli-service build",
     "pro": "vue-cli-service build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "register-service-worker": "^1.7.2"
+  },
   "devDependencies": {
     "core-js": "^3.6.4",
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-router": "~4.2.0",
     "@vue/cli-plugin-vuex": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
+    "@vue/cli-plugin-pwa": "^3.9.0",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "vue-template-compiler": "^2.6.11"

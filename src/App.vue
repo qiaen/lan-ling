@@ -1,11 +1,16 @@
 <template>
   <div id="app" class="full-content hideit" :class="{'full-collapse': isCollapse}">
     <router-view />
+    <popup />
   </div>
 </template>
 <script>
 import { mapGetters } from 'Vuex'
+import popup from './pwa/popup'
 export default {
+  components: {
+    popup
+  },
   name: 'App',
   computed: {
     ...mapGetters([
