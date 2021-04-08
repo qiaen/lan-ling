@@ -16,11 +16,9 @@
 				{{userInfo.name||''}}
 			</div>
 			<el-dropdown class="fxmiddle" @command="logout">
-				<span class="el-dropdown-link">
-					<a class="middle acc-avatar pointer">
-						<img :src="userInfo.avatar" alt="">
-					</a>
-				</span>
+				<a class="middle acc-avatar pointer el-dropdown-link">
+					<img :src="userInfo.avatar" alt="">
+				</a>
 				<el-dropdown-menu slot="dropdown">
 					<el-dropdown-item command="a" icon="el-icon-switch-button">
 						退出登录
