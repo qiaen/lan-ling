@@ -31,7 +31,7 @@ export default {
 			this.registration = e.detail
 			this.$notify.info({
 				title: '客官上新了',
-				message: h('div', { class: 'sw-update-popup' }, [
+				message: h('div', [
 					this.notificationText,
 					h('br'),
 					h('button', {
@@ -55,12 +55,6 @@ export default {
 			if (!this.registration || !this.registration.waiting) return
 			this.registration.waiting.postMessage('skipWaiting')
 		}
-	},
-	// created() {
-	// 	this.showRefreshUI({ detail: null })
-	// }
+	}
 }
 </script>
-<style lang="less">
-.sw-update-popup>button {}
-</style>
