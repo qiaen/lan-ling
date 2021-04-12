@@ -8,7 +8,7 @@
 			<div class="rotate-flip" :class="{'rotate-o':rotate}">
 				<ul class="rotate-front absolute transition3" :style="{transform: 'translate3d(0,'+(ltp==1?'0':'-40px')+', 0)'}">
 					<li class="flex center fcfff fsize24 login-logo">
-						<router-link to="/"><img src="/img/login-logo-small.png" alt=""></router-link>
+						<router-link to="/"><img src="/login-logo-small.png" alt=""></router-link>
 					</li>
 					<li class="flex pb15">
 						<a :style="{color:ltp==1?'#fff':'#999'}" @click="ltp=1" class="transition3 flex1 center pointer">登录</a>
