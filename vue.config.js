@@ -7,8 +7,8 @@ const base = {
 	// 项目页面title
 	name: '兰陵王 - 后台管理系统',
 	// 目标接口域名
-	// target: 'https://lanling.diumx.com',
-	target: 'http://localhost:8030',
+	target: 'https://lanling.diumx.com',
+	// target: 'http://localhost:8030',
 }
 module.exports = {
 	devServer: {
