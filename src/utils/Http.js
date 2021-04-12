@@ -1,6 +1,9 @@
 // 接口请求统一封装
 export default class Http {
 	static setPromise(method, url, data) {
+		// 开始 因为兰陵王服务器缓存了接口信息，实际中，你可以删除下面的添加随机数
+		url = url + '?timestamp=' + new Date().getTime()
+		// 结束
 		return new Promise((resolve, reject) => {
 			switch (method.toUpperCase()) {
 				case 'GET':

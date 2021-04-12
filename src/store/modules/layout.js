@@ -1,4 +1,5 @@
 import Storage from '@utils/Storage'
+import * as Account from '@api/Account'
 const state = {
 	// 已打开的tab菜单, [{key:value}]
 	menuTabs: [{ path: '/', label: 'Dashboard', icon: 'iconfont icon-dashboard' }],
@@ -46,6 +47,19 @@ const actions = {
 	// 关闭所有，关闭其他tabs
 	CloseTabs({ commit }, type) {
 		commit('SET_CLOSE_TABS', type)
+	},
+	// 注销
+	Logout({ commit }) {
+		return Account.logout().then(res => {
+			if (res.code == 200) {
+				commit('SET_CLOSE_TABS', 'all')
+				commit('SET_MENUS', [])
+				window.needAuth = true
+				return Promise.resolve()
+			}
+		}).catch(err => {
+			return Promise.reject(err)
+		})
 	}
 }
 const mutations = {

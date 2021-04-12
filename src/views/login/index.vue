@@ -106,7 +106,6 @@ export default {
 				Account.login(this.form).then(res => {
 					if (res.code == 200) {
 						this.$message.success('登录成功！')
-						Storage.set('token', res.data)
 						/** 关闭login页面 */
 						this.$store.dispatch('RemoveTab', { path: '/login' })
 						/** 跳转到首页 */

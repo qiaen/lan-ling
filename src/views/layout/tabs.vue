@@ -26,7 +26,7 @@
 	</div>
 </template>
 <script>
-import { mapGetters } from 'Vuex'
+import { mapGetters, mapActions } from 'Vuex'
 export default {
 	name: 'tabs',
 	data() {
@@ -41,13 +41,14 @@ export default {
 		}
 	},
 	methods: {
+		...mapActions(['RemoveTab', 'CloseTabs']),
 		// 选中tab，注意这里用的是name，tab识别
 		selectTab(tab) {
 			this.$router.push(tab.name)
 		},
 		// 删除tab
 		removeTab(path) {
-			this.$store.dispatch('RemoveTab', { path }).then(() => {
+			this.RemoveTab({ path }).then(() => {
 				// 删除tab成功后，如果删除的是当前查看的，就回到首页
 				if (path === this.$route.path) {
 					// 回到已打开tab的最后一个
@@ -62,7 +63,7 @@ export default {
 		},
 		//  根据类型关闭tab
 		closeTabs(type) {
-			this.$store.dispatch('CloseTabs', type).then(() => {
+			this.CloseTabs(type).then(() => {
 				// 删除tab成功后，如果删除的是当前查看的，就回到首页
 				if (type === 'all') {
 					this.selectTab({ name: '/' })

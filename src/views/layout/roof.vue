@@ -29,8 +29,7 @@
 	</div>
 </template>
 <script>
-import Storage from '@utils/Storage'
-import { mapGetters } from 'Vuex'
+import { mapGetters, mapActions } from 'Vuex'
 export default {
 	name: 'roof',
 	data() {
@@ -44,9 +43,10 @@ export default {
 		])
 	},
 	methods: {
+		...mapActions(['Logout', 'SetMenuCollapse']),
 		// 伸展菜单
 		collapse() {
-			this.$store.dispatch('SetMenuCollapse', !this.isCollapse)
+			this.SetMenuCollapse(!this.isCollapse)
 		},
 		// 面包屑
 		mthBread() {
@@ -56,11 +56,9 @@ export default {
 		// 退出登录
 		logout(val) {
 			if (val === 'a') {
-				this.$store.dispatch('CloseTabs', 'all')
-				this.$store.dispatch('SetMenus', [])
-				Storage.clear('token')
-				window.needAuth = true
-				this.$router.push('/login')
+				this.Logout().then(() => {
+					this.$router.push('/login')
+				})
 			}
 		}
 	},
