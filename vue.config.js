@@ -7,8 +7,7 @@ const base = {
 	// 项目页面title
 	name: '兰陵王 - 后台管理系统',
 	// 目标接口域名
-	target: 'https://lanling.diumx.com',
-	// target: 'http://localhost:8030',
+	target: 'https://lanling.diumx.com'
 }
 module.exports = {
 	devServer: {
@@ -26,15 +25,6 @@ module.exports = {
 				changeOrigin: true, //是否跨域
 				pathRewrite: {
 					'^/api': '/api' //重写接口
-				},
-				cookieDomainRewrite: ''
-			},
-			// 测试环境登录接口用，发布后用不到
-			'/sso': {
-				target: base.target,
-				changeOrigin: true, //是否跨域
-				pathRewrite: {
-					'^/sso': '/sso' //重写接口
 				},
 				cookieDomainRewrite: ''
 			}
