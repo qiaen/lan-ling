@@ -35,7 +35,7 @@
 				</ul>
 				<ul class="rotate-back absolute transition3">
 					<li class="flex center fcfff fsize24 login-logo">
-						<router-link to="/"><img src="/img/login-logo-small.png" alt=""></router-link>
+						<router-link to="/"><img src="/login-logo-small.png" alt=""></router-link>
 					</li>
 					<li class="flex pb15">
 						<a @click="rotate=false" class="fc999 flex1 center pointer">返回</a>
