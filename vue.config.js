@@ -30,6 +30,7 @@ module.exports = {
 			}
 		}
 	},
+	assetsDir:'assets',
 	chainWebpack(config) {
 		config.set('name', base.name)
 		config.plugins.delete('prefetch')
