@@ -2,8 +2,6 @@ const path = require('path')
 
 const base = {
 	isProd: process.env.NODE_ENV === 'production',
-	// ！！重要！！发布后的项目地址
-	href: '',
 	// 项目页面title
 	name: '兰陵王 - 后台管理系统',
 	// 目标接口域名
@@ -61,7 +59,7 @@ module.exports = {
 			}
 		}
 	},
-	publicPath: base.isProd ? base.href : '/',
+	publicPath: '/',
 	lintOnSave: !base.isProd,
 	productionSourceMap: false,
 	pwa: {
