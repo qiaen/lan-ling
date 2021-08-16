@@ -13,7 +13,8 @@
 				<li><strong>动态菜单：</strong>在服务端配置菜单路由，以及菜单指定的页面文件</li>
 				<li><strong>菜单权限：</strong>可以给不同用户指定不同的菜单，菜单权限，使用路由守卫在跳转时校验权限提示404或者403</li>
 				<li><strong>按钮权限：</strong>服务器对于不同的功能，给出不同的权限码，前端通过v-permission指令搞定是否有权限</li>
-				<li><strong>用到：vue， element ui， vuex， vue-router， iconfont</strong></li>
+                <li><strong>PWA service-worker：</strong>service-worker 功能已开启，刷新将会使用service-worker缓存，等待下次发版，提醒用户更新</li>
+				<li><strong>用到：vue， element ui， vuex， vue-router，PWA(service-worker)， iconfont</strong></li>
 			</ul>
 			<h3>Axios</h3>
 			<ul>
@@ -29,76 +30,67 @@
 			<h3>其他功能</h3>
 			<ul>
 				<li><strong>request：</strong>echarts图表，vue-split分割等可以自助引用，做到只专注模版框架功能</li>
+                <li><strong>PWA：</strong>service-worker 功能已开启，刷新将会使用service-worker缓存，等待下次发版，提醒用户更新</li>
 			</ul>
-		</div>
 		</div>
 	</section>
 </template>
 <script>
-import Enum from '@configs/enum'
-import * as Task from '@api/Task'
 import Mixins from '@/mixins'
 export default {
-	name: '/',
-	mixins: [Mixins],
-	data() {
-		return {
-			numbers: [1, 2, 4],
-			lists: [{ name: 1 }, { name: 2 }, { name: 3 }]
-		}
-	},
-	methods: {
-		show(val) {
-			this.$message.success(`我是一个按钮，${val}可以看见！！`)
-		}
-	},
-	mounted() {}
+    name: '/',
+    mixins: [Mixins],
+    data() {
+        return {}
+    },
+    methods: {},
+    mounted() {}
 }
 </script>
 <style lang="less">
 .json {
-	.cards {
-		margin: 30px 0 70px
-	}
-	.card {
-		background: #fbfcfd;
-		height: 204px;
-		text-align: center
-	}
-	.card img {
-		margin: 40px auto 25px;
-		width: 80px;
-		height: 80px
-	}
-	.card h4 {
-		font-size: 18px;
-		color: #1f2d3d;
-		font-weight: 400;
-		margin: 0
-	}
-	.card span {
-		font-size: 14px;
-		color: #99a9bf
-	}
-	h3 {
-		font-size: 22px;
-		font-weight: 400;
-		margin: 0 0 30px;
-		color: #1f2d3d;
-	}
-	ul {
-		margin-bottom: 50px;
-		padding-left: 0;
-		li {
-			font-size: 14px;
-			margin-bottom: 10px;
-			color: #99a9bf;
-			list-style: none;
-			strong {
-				color: #5e6d82;
-				font-weight: 400;
-			}
-		}
-	}
+    .cards {
+        margin: 30px 0 70px;
+    }
+    .card {
+        background: #fbfcfd;
+        height: 204px;
+        text-align: center;
+    }
+    .card img {
+        margin: 40px auto 25px;
+        width: 80px;
+        height: 80px;
+    }
+    .card h4 {
+        font-size: 18px;
+        color: #1f2d3d;
+        font-weight: 400;
+        margin: 0;
+    }
+    .card span {
+        font-size: 14px;
+        color: #99a9bf;
+    }
+    h3 {
+        font-size: 22px;
+        font-weight: 400;
+        margin: 0 0 30px;
+        color: #1f2d3d;
+    }
+    ul {
+        margin-bottom: 50px;
+        padding-left: 0;
+        li {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #99a9bf;
+            list-style: none;
+            strong {
+                color: #5e6d82;
+                font-weight: 400;
+            }
+        }
+    }
 }
 </style>
